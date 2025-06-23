@@ -2,7 +2,7 @@ name: Run Python Script Hourly
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Executes every hour at the start of the hour
+    - cron: '*/5 * * * *'  # Executes every hour at the start of the hour
 
 jobs:
   run-script:
