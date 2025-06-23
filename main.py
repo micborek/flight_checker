@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import os
 
 # Set your client ID and client secret - move somewhere safe
 CLIENT_ID = os.getenv('CLIENT_ID')
