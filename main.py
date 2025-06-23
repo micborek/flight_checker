@@ -2,6 +2,10 @@ import requests
 import json
 import time
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO,  # Set the logging level
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Set your client ID and client secret - move somewhere safe
 CLIENT_ID = os.getenv('CLIENT_ID')
@@ -22,9 +26,9 @@ response = requests.post(token_url, headers=headers, data=payload)
 if response.status_code == 200:
     # Extract the access token from the response JSON
     access_token = response.json().get('access_token')
-    print("Access Token:", access_token)
+    logging.info("Access Token retrieved.")
 else:
-    print("Failed to retrieve access token:", response.status_code, response.text)
+    logging.error("Failed to retrieve access token.")
 
 # Now you can use the access token to make authorized requests to the OpenSky API
 api_headers = {
