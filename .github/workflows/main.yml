@@ -24,5 +24,8 @@ jobs:
           pip install -r requirements.txt  # Install dependencies from requirements.txt
 
       - name: Run Python script
+        env:
+            CLIENT_ID: ${{ secrets.CLIENT_ID }}
+            CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: |
           python main.py  # Replace with the path to your Python script
