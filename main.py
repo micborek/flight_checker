@@ -3,8 +3,8 @@ import json
 import time
 
 # Set your client ID and client secret - move somewhere safe
-CLIENT_ID = ''
-CLIENT_SECRET = ''
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
 # OpenSky token URL
 token_url = "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token"
