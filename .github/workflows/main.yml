@@ -1,0 +1,27 @@
+name: Run Python Script Hourly
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Executes every hour at the start of the hour
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Checkout the code from the repository
+
+      - name: Set up Python
+        uses: actions/setup-python@v2  # Set up the Python environment
+        with:
+          python-version: '3.13'  # Specify the Python version (adjust as needed)
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Install dependencies from requirements.txt
+
+      - name: Run Python script
+        run: |
+          python main.py  # Replace with the path to your Python script
